@@ -1,6 +1,6 @@
 name: savely
 description: With Savely, you can easily download and  retrieve the duration and type of a video, get the direct link of its thumbnail, and perform other operations .
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/dj-yacine-flutter/Savely
 
 environment:

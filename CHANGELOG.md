@@ -13,3 +13,7 @@
 ## 0.0.4
 
 * Fix the return type
+
+## 0.0.5
+
+* Fix the return type

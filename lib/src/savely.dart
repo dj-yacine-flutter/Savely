@@ -78,7 +78,7 @@ class Savely {
     thumbnail = apiResponse['thumbnail'] as String? ?? '';
     website = apiResponse['website'] as String;
     data =
-    List<Map<String, dynamic>>.from(apiResponse['data'] as List<dynamic>);
+        List<Map<String, dynamic>>.from(apiResponse['data'] as List<dynamic>);
     _client.close();
 
     return {
