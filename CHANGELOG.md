@@ -17,3 +17,7 @@
 ## 0.0.5
 
 * Fix the return type
+
+## 0.0.6
+
+* Fix Client error
