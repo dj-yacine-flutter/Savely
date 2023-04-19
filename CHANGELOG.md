@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * Fix Lints
+
+## 0.0.4
+
+* Fix the return type
