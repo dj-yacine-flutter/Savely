@@ -14,7 +14,7 @@ import 'package:savely/src/api.dart';
 /// website using its URL.
 class Savely {
   /// The [http.Client] instance for making HTTP requests.
-  final client = http.Client();
+  final _client = http.Client();
 
   /// The source of the video.
   late String source;
@@ -49,7 +49,7 @@ class Savely {
   ///
   /// print(savely.source);
   /// print(savely.duration);
-  Future<void> down(String videoUrl) async {
+  Future<Map<String, dynamic>> down(String videoUrl) async {
     final supportedDomains = [
       'dailymotion',
       'facebook',
@@ -69,7 +69,7 @@ class Savely {
       throw ArgumentError('Unsupported website');
     }
 
-    final api = API(client: client, dataUrl: videoUrl);
+    final api = API(client: _client, dataUrl: videoUrl);
     final apiResponse = await api.convert();
 
     source = apiResponse['source'] as String? ?? '';
@@ -78,7 +78,16 @@ class Savely {
     thumbnail = apiResponse['thumbnail'] as String? ?? '';
     website = apiResponse['website'] as String;
     data =
-        List<Map<String, dynamic>>.from(apiResponse['data'] as List<dynamic>);
-    client.close();
+    List<Map<String, dynamic>>.from(apiResponse['data'] as List<dynamic>);
+    _client.close();
+
+    return {
+      'source': source,
+      'title': title,
+      'duration': duration,
+      'thumbnail': thumbnail,
+      'website': website,
+      'data': data,
+    };
   }
 }
