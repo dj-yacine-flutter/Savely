@@ -1,7 +1,7 @@
 name: savely
-description: A new Flutter package to download video from social media.
+description: With Savely, you can easily download and  retrieve the duration and type of a video, get the direct link of its thumbnail, and perform other operations .
 version: 0.0.1
-homepage:
+homepage: https://github.com/dj-yacine-flutter/Savely
 
 environment:
   sdk: '>=2.19.5 <3.0.0'
@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
