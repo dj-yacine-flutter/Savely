@@ -17,22 +17,22 @@ class API {
   });
 
   /// The website of the data
-  late String website = '';
+  late String _website = '';
 
   /// The source of the data
-  late String? source = '';
+  late String _source = '';
 
   /// The title of the data
-  late String? title = '';
+  late String _title = '';
 
   /// The duration of the data
-  late String? duration = '';
+  late dynamic _duration ;
 
   /// The thumbnail image URL of the data
-  late String? thumbnail = '';
+  late String _thumbnail = '';
 
   /// The list of URLs for the different qualities and types of the data
-  late List<Map<String, dynamic>> urls = [];
+  late List<Map<String, dynamic>> _urls = [];
 
   Future<Map<String, dynamic>> convert() async {
     /// Create the [Uri] object for the API endpoint
@@ -67,11 +67,11 @@ class API {
       /// Decode the body.
       final jsonResponse = json.decode(response.body);
 
-      source = jsonResponse['meta']['source'] as String?;
-      title = jsonResponse['meta']['title'] as String?;
-      duration = jsonResponse['meta']['duration'] as String?;
-      thumbnail = jsonResponse['thumb'] as String?;
-      website = Uri.parse(dataUrl).host;
+      _source = jsonResponse['meta']['source'] as String? ?? '';
+      _title = jsonResponse['meta']['title'] as String? ?? '';
+      _duration = jsonResponse['meta']['duration'] as dynamic ?? '';
+      _thumbnail = jsonResponse['thumb'] as String? ?? '';
+      _website = Uri.parse(dataUrl).host;
 
       for (var item in jsonResponse['url']) {
         Map<String, dynamic> urlMap = {
@@ -82,17 +82,17 @@ class API {
           'isJustAudio': item['audio'] as bool? ?? false,
         };
 
-        urls.add(urlMap);
+        _urls.add(urlMap);
       }
 
       /// Return the map
       return {
-        'source': source,
-        'title': title,
-        'duration': duration,
-        'thumbnail': thumbnail,
-        'website': website,
-        'data': urls
+        'source': _source,
+        'title': _title,
+        'duration': _duration.toString(),
+        'thumbnail': _thumbnail,
+        'website': _website,
+        'data': _urls
       };
     } else if (response.statusCode != 200) {
       /// Throw an exception if the response status code is not 200 or 201
