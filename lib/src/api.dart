@@ -26,7 +26,7 @@ class API {
   late String _title = '';
 
   /// The duration of the data
-  late dynamic _duration ;
+  late dynamic _duration;
 
   /// The thumbnail image URL of the data
   late String _thumbnail = '';
