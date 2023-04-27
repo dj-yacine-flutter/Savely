@@ -21,3 +21,7 @@
 ## 0.0.6
 
 * Fix Client error
+
+## 0.0.7
+
+* Fix Dailymotion
